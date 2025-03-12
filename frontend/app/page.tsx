@@ -21,8 +21,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { jwtDecode } from "jwt-decode";
-
 // Add this interface for brands
 interface Brand {
   _id: string;
@@ -38,10 +36,6 @@ export default function Home() {
   const [brands, setBrands] = useState<Brand[]>([]);
   const [selectedBrand, setSelectedBrand] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
-
-  const token = localStorage.getItem("accessToken");
-  const decodedToken = token ? jwtDecode(token) : null;
-  console.log(decodedToken);
 
   // Fetch perfumes and brands
   useEffect(() => {
